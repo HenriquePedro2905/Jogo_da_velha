@@ -25,7 +25,7 @@ function toStart() {
     namePlayer1 = document.getElementById("player1").value
     namePlayer2 = document.getElementById("player2").value
 
-    if (namePlayer1 !== "") {
+    if (namePlayer1 !== "" && namePlayer2 !== "") {
         gameOn = true;
         msg.innerText = "o jogo começou";
     } else {
@@ -53,10 +53,7 @@ function handleClick(index) {
     console.log(board);
 
     checkWinnwer();
-    aiMove();
-    if (iaTeste) {
-        changePlayer();
-    }
+    changePlayer();
 }
 
 function checkWinnwer() {
@@ -102,21 +99,4 @@ function reload() {
     gameOn = true;
     score.innerHTML = namePlayer1 + " = " + point01 + " | " + namePlayer2 + " = " + point02;
     msg.innerText = "";
-}
-
-function aiMove() {
-    if (namePlayer2 === "") {
-        let qualquer;
-        for (i = 0; i < 9; i++) {
-            if (board[i] === "") {
-                qualquer = i;
-                board[i] = player02;
-                cell[qualquer].innerHTML = player02;
-                console.log(qualquer);
-                break;
-            }
-        }       
-    } else {
-        iaTeste = true;
-    }
 }
